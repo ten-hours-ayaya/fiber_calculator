@@ -23,3 +23,10 @@ jobs:
 
     - name: Build
       run: GOOS=windows GOARCH=386 CGO_ENABLED=0 go build -v -o fiber_calculator ./main.go
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: fiber_calculator # Имя артефакта
+        path: fiber_calculator # Путь к собранному файлу
+        retention-days: 80     # Срок хранения артефакта (от 1 до 90 дней)
